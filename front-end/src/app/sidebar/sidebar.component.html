@@ -1,0 +1,47 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+               (closed)="events.push('close!')">
+    <div class="sidenav">
+      <img src="./../../assets/img/logo.png" class="img-fluid">
+      <mat-list role="list">
+        <mat-list-item role="listitem" routerLink="/main/create_event" routerLinkActive="active" >
+          <span class="material-icons">library_add</span>
+          {{'menu.create_new_event' | translate}}
+        </mat-list-item>
+        <mat-list-item role="listitem" routerLink="/main/events" routerLinkActive="active">
+          <span class="material-icons">date_range</span>
+          {{'menu.events_list' | translate}}
+        </mat-list-item>
+        <mat-list-item role="listitem" routerLink="/main/users" routerLinkActive="active">
+          <span class="material-icons">person</span>
+          {{'menu.users_management' | translate}}
+        </mat-list-item>
+        <mat-list-item role="listitem" routerLink="/main/groups" routerLinkActive="active">
+          <span class="material-icons">group</span>
+          {{'menu.groups' | translate}}
+        </mat-list-item>
+        <mat-list-item role="listitem" routerLink="/main/badges" routerLinkActive="active">
+          <span class="material-icons">credit_card</span>
+          {{'menu.badges_generator' | translate}}
+        </mat-list-item>
+        <mat-list-item role="listitem" routerLink="/main/settings" routerLinkActive="active">
+          <span class="material-icons">settings</span>
+          {{'menu.settings' | translate}}
+        </mat-list-item>
+        <mat-list-item role="listitem" (click)="logout()" >
+          <span class="material-icons">power_settings_new</span>
+          {{'menu.logout' | translate}}
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content >
+    <mat-toolbar color="primary" >
+      <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+      <h1></h1>
+    </mat-toolbar>
+    <ng-content></ng-content>
+    <p class="footer">Powered by Talan Tunisie ©2020.</p>
+  </mat-sidenav-content>
+</mat-sidenav-container>

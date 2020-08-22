@@ -1,0 +1,118 @@
+{
+  "menu" : {
+    "create_new_event" : "Create New Event" ,
+    "users_management" : "Users",
+    "events_list" : "Events List",
+    "badges_generator" : "Badges Generator" ,
+    "logout" : "Logout" ,
+    "settings" : "Settings"
+  },
+  "event_description" : {
+    "event_name": "Event Name",
+    "start_date": "Start Date",
+    "end_date": "End Date",
+    "number_attendees": "Number of attendees",
+    "description": "Description"
+  },
+  "event_plan" : {
+
+  },
+  "event_surveys" : {
+
+  },
+  "event_votes" : {
+
+  },
+  "event_goodies" : {
+
+  },
+  "event_attendees" : {
+
+  },
+
+
+  "Next" : "Next",
+  "Start Activity" : "Start Activity",
+  "End Activity " : "End Activity",
+  "Add Session" : "Add Session",
+  "Add SubSession" : "Add SubSession",
+  "Start" : "Start",
+  "End" : "End",
+  "Add" : "Ajouter",
+  "Title" : "Title",
+  "New Event" : "New Event",
+  " Profil & Settings" : " Profil & Settings",
+  "Cancel" : "Cancel",
+  "First Name" : "First Name",
+  "Last Name" : "Last Name",
+  "email" : "email",
+  "phone" : "phone",
+  "send" : "send",
+  "edit" : "edit",
+  "delete" : "delete",
+  "Attendees" : "Attendees",
+  "Surveys" : "Surveys",
+  "Number of Stars" : "Number of Stars",
+  "Result" : "Result",
+  "Add Survey" : "Add Survey",
+  "Submit" : "  Submit",
+  "Survey Result" : "Survey Result",
+  "Update Survey" : "Update Survey",
+  "New Events" : "New Events",
+  "Add Survey " :  "Add Survey",
+  "Add Vote" : "Add Vote",
+  "Option Title": "Option Title",
+  "Option Description" : "Option Description",
+  "Update": "Update",
+  "Vote Result": "Vote Result",
+  "Update vote option": "Update vote option",
+  "Update vote" : "Update vote",
+  "Vote Title" : "Vote Title",
+  "Vote Description" : "Vote Description",
+  "Add Vote Option" :    "Add Vote Option",
+  "Event name" : "Event name",
+  "Users" : "User Management",
+  "add Users": "add Users",
+  "Badges Generator": "Badge Generator",
+  "Add New Event" : "Add New Event",
+  "My Events" : "My Events",
+  "Language" : "Language",
+
+  "English": "English",
+  "French" : "French",
+  "Last Events" : "Last Events",
+
+
+
+  "Left": "Left",
+  "Right": "Right",
+  "Center": "Center",
+  "Add QR Code": "Add QR Code",
+  "Templates" : "Templates",
+  "Text": "Text",
+  "Shape": "Shape",
+  "Images": "Images",
+  "Dynamic Content": "Dynamic Content",
+  "Generate": "Generate",
+  "Badge Format": "Badge Format",
+  "Font Size" : "Font Size",
+  "Font Family":  "Font Family",
+
+  "Font Style":  "Font Style",
+  "Font Weight":  "Font Weight",
+  "Text Position": "Text Position",
+  "Color": "Color",
+  "width" : "width",
+  "height": "height",
+  "Background": "Background",
+  "Dynamic fields": "Dynamic fields",
+  "Open PDF": "Open PDF",
+  "LOGIN TO YOUR ACCOUNT" : "LOGIN TO YOUR ACCOUNT",
+  "Email is required" : "Email is required",
+  "Please enter a valid email address": "Please enter a valid email address",
+  "Password": "Password",
+  "Password is required": "Password is required",
+  "Remember Me": "Remember Me",
+  "Forgot Password?": "Forgot Password?",
+  "LOGIN": "LOGIN"
+}

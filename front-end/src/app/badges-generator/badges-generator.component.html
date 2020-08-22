@@ -1,0 +1,320 @@
+<div class="badge-generator-container">
+
+  <div >
+    <p class="title scale-in-center">
+      <span class="material-icons title-icon">credit_card</span>
+      Badge Generator</p>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-12 col-sm-6 col-xl-4 scale-in-center p-0" >
+      <div   class="palette">
+        <div class="palette-menu">
+          <button class="palette-menu-button"
+                  [ngClass]="selected_menu_btn == 'badge' ? 'selected-palette-menu-button' : '' "
+                  (click)="selectPalette('badge')">
+            Badge
+          </button>
+          <button class="palette-menu-button"
+                  [ngClass]="selected_menu_btn == 'templates' ? 'selected-palette-menu-button' : '' "
+                  (click)="selectPalette('templates')">
+            Templates
+          </button>
+          <button class="palette-menu-button"
+                  [ngClass]="selected_menu_btn == 'text' ? 'selected-palette-menu-button' : '' "
+                  (click)="selectPalette('text')">
+            Text
+          </button>
+          <button class="palette-menu-button"
+                  [ngClass]="selected_menu_btn == 'shape' ? 'selected-palette-menu-button' : '' "
+                  (click)="selectPalette('shape')">
+            Shape
+          </button>
+          <button class="palette-menu-button"
+                  [ngClass]="selected_menu_btn == 'images' ? 'selected-palette-menu-button' : '' "
+                  (click)="selectPalette('images')">
+
+            Images
+          </button>
+          <button class="palette-menu-button"
+                  [ngClass]="selected_menu_btn == 'qrcode' ? 'selected-palette-menu-button' : '' "
+                  (click)="selectPalette('qrcode')">
+
+            QR Code
+          </button>
+          <button class="palette-menu-button"
+                  [ngClass]="selected_menu_btn == 'dynamic-content' ? 'selected-palette-menu-button' : '' "
+                  (click)="selectPalette('dynamic-content')">
+
+            Dynamic Content
+          </button>
+
+          <button class="palette-menu-button"
+                  [ngClass]="selected_menu_btn == 'export' ? 'selected-palette-menu-button' : '' "
+                  (click)="selectPalette('export')">
+
+            Generate
+          </button>
+        </div>
+
+        <div class="palette-content" *ngIf="selected_menu_btn == 'badge'" >
+          <p class="palette-title">Badge fromat</p>
+          <button class="btn" (click)="selectBadge(204 ,325)"> 54*86 Badge</button>
+          <button class="btn" (click)="selectBadge(222 ,313)" > 59*83 Badge</button>
+          <button class="btn" (click)="selectBadge(374 ,253)" > 99*67 Badge</button>
+        </div>
+
+        <div class="palette-content" *ngIf="selected_menu_btn == 'templates'" >
+          <p class="palette-title">Templates</p>
+        </div>
+
+
+        <div class="palette-content" *ngIf="selected_menu_btn == 'text'" >
+          <p class="palette-title">Textes</p>
+          <button (click)="addElement('text')">Add Text</button>
+          <div *ngIf="!(selectedElement == undefined  || element.type != 'text')">
+            Text
+            <input matInput placeholder="Text" [(ngModel)]="element.content" >
+          </div>
+
+          <div *ngIf="selectedElement == undefined  || element.type != 'text'">
+            Text
+            <input disabled matInput placeholder="Text">
+          </div>
+
+          <div>
+            Font Size :
+            <mat-slider [disabled]="selectedElement == undefined || element.type != 'text' "
+                        thumbLabel
+                        [displayWith]="formatLabel" tickInterval="1" min="10" max="100"
+                        (change)="modifySize('font-size' , $event.value)"
+                        [value]="getValue(element ? element.style['font-size'] : null)"></mat-slider>
+
+          </div>
+
+          <div >
+            Font Family :
+            <!--                  <mat-form-field appearance="fill">-->
+            <!--                    <mat-label>Select</mat-label>-->
+            <!--      <mat-select [disabled]="selectedElement == undefined  || element.type != 'text'"-->
+            <!--                  [(ngModel)]="element?.style['font-style']">-->
+            <!--                      <mat-option value="option">Option</mat-option>-->
+            <!--                    </mat-select>-->
+            <!--                  </mat-form-field>-->
+          </div>
+
+          <div >
+            Font Style :
+            <mat-form-field appearance="fill" >
+              <mat-label>Font Style</mat-label>
+              <mat-select [disabled]="selectedElement == undefined  || element.type != 'text'"
+                          [(ngModel)]="element?.style['font-style']">
+                <mat-option value="oblique">Oblique</mat-option>
+                <mat-option value="normal">Normal</mat-option>
+                <mat-option value="italic">Italic</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div>
+            Font weight :
+            <mat-form-field appearance="fill">
+              <mat-label>Font Weight</mat-label>
+              <mat-select [disabled]="selectedElement == undefined  || element.type != 'text'"
+                          [(ngModel)]="element?.style['font-weight']">
+                <mat-option value="bold">Bold</mat-option>
+                <mat-option value="normal">Normal</mat-option>
+                <!--                <mat-option value="option">Option</mat-option>-->
+                <!--                <mat-option value="option">Option</mat-option>-->
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div>
+            Text Position :
+            <mat-form-field appearance="fill">
+              <mat-label>Text Position</mat-label>
+              <mat-select [disabled]="selectedElement == undefined  || element.type != 'text'"
+                          [(ngModel)]="element?.style['text-align']">
+                <mat-option value="left">Left</mat-option>
+                <mat-option value="right">Right</mat-option>
+                <mat-option value="center">Center</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div>
+            Color :
+            <input [cpDisabled]="selectedElement == undefined  || element.type != 'text'"
+                   [cpPosition]="'top-right'"
+                   [(colorPicker)]="element?.style['color']"
+                   [style.background]="element?.style['color']"/>
+          </div>
+
+          <div>
+            width :
+            <mat-slider [disabled]="selectedElement == undefined"
+                        thumbLabel
+                        [displayWith]="formatLabel"
+                        tickInterval="1"
+                        min="0"
+                        [max]="getValue(main_style['width'])"
+                        (change)="modifySize('width' , $event.value)"
+                        [value]="getValue(element ? element.style['width'] : null)"></mat-slider>
+
+          </div>
+
+          <div>
+            height :
+            <mat-slider [disabled]="selectedElement == undefined"
+                        thumbLabel [displayWith]="formatLabel"
+                        tickInterval="1"
+                        min="0"
+                        [max]="getValue(main_style['height'])"
+                        (change)="modifySize('height' , $event.value)"
+                        [value]="getValue(element ? element.style['height'] : null)"></mat-slider>
+          </div>
+        </div>
+
+
+
+
+        <div class="palette-content" *ngIf="selected_menu_btn == 'shape'" >
+          <p class="palette-title">Shapes</p>
+          <button (click)="addElement('shape')">Add Shape</button>
+          <div>
+            width :
+            <mat-slider [disabled]="selectedElement == undefined"
+                        thumbLabel
+                        [displayWith]="formatLabel"
+                        tickInterval="1"
+                        min="0"
+                        [max]="getValue(main_style['width'])"
+                        (change)="modifySize('width' , $event.value)"
+                        [value]="getValue(element ? element.style['width'] : null)"></mat-slider>
+
+          </div>
+
+          <div>
+            height :
+            <mat-slider [disabled]="selectedElement == undefined"
+                        thumbLabel [displayWith]="formatLabel"
+                        tickInterval="1"
+                        min="0"
+                        [max]="getValue(main_style['height'])"
+                        (change)="modifySize('height' , $event.value)"
+                        [value]="getValue(element ? element.style['height'] : null)"></mat-slider>
+          </div>
+
+          <div>
+            Background :
+            <input [disabled]="selectedElement == undefined  || element.type == 'text'"
+                   [cpPosition]="'top-right'"
+                   [(colorPicker)]="element?.style['background']"
+                   [style.background]="element?.style['background']"/>
+          </div>
+
+
+        </div>
+
+
+
+        <div class="palette-content" *ngIf="selected_menu_btn == 'images'" >
+          <p class="palette-title">Images</p>
+          <form [formGroup]="form">
+            <div>
+              <button mat-raised-button type="button" (click)="filePicker.click()">Add Image</button>
+              <input type="file" #filePicker (change)="onPickImage($event)">
+            </div>
+          </form>
+
+          <div>
+            width :
+            <mat-slider [disabled]="selectedElement == undefined"
+                        thumbLabel
+                        [displayWith]="formatLabel"
+                        tickInterval="1"
+                        min="0"
+                        [max]="getValue(main_style['width'])"
+                        (change)="modifySize('width' , $event.value)"
+                        [value]="getValue(element ? element.style['width'] : null)"></mat-slider>
+
+          </div>
+
+          <div>
+            height :
+            <mat-slider [disabled]="selectedElement == undefined"
+                        thumbLabel [displayWith]="formatLabel"
+                        tickInterval="1"
+                        min="0"
+                        [max]="getValue(main_style['height'])"
+                        (change)="modifySize('height' , $event.value)"
+                        [value]="getValue(element ? element.style['height'] : null)"></mat-slider>
+          </div>
+
+        </div>
+
+
+        <div class="palette-content" *ngIf="selected_menu_btn == 'qrcode'" >
+          <p class="palette-title">QR Codes</p>
+          <button (click)="addElement('qrcode')">Add QR Code</button>
+        </div>
+
+        <div class="palette-content" *ngIf="selected_menu_btn == 'dynamic-content'" >
+          <p class="palette-title">Dynamic Content</p>
+          <div>
+            Dynamic fields
+            <mat-form-field appearance="fill">
+              <mat-label>Text Position</mat-label>
+              <mat-select [(ngModel)]="selected_field" [disabled]="selectedElement == undefined ">
+                <mat-option value="first_name">First Name</mat-option>
+                <mat-option value="last_name">Last Name</mat-option>
+                <mat-option value="email">Email</mat-option>
+                <mat-option value="phone">Phone</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <button mat-button [disabled]="!selected_field || !selectedElement"
+                    (click)="addDynamicField()">Add</button>
+          </div>
+
+          <div *ngFor="let dfield of dynamicFields">
+            <p>{{dfield.id}}  {{dfield.field}} {{dfield.type}}</p>
+          </div>
+
+        </div>
+
+        <div class="palette-content" *ngIf="selected_menu_btn == 'export'" >
+          <button (click)="generateBadges()" class="btn">Generate</button>
+          <button (click)="generatePdf()">Open PDF </button>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="col-12 col-sm-6 col-xl-8 scale-in-center" >
+      <div class="row justify-content-center">
+        <div #content id="badge" [ngStyle]="main_style">
+          <div>
+            <div  *ngFor="let element of container" [ngStyle]="element.style" cdkDragBoundary="#badge" cdkDrag (click)="selectElement(element.id , element)"
+                  tabindex="0" (keydown)="deleteElement($event)">
+              <p *ngIf="element.type == 'text'">{{element.content}}</p>
+              <img class="image" *ngIf="element.type == 'image'" [src]="element.content"/>
+              <ngx-qrcode *ngIf="element.type == 'qrcode'" [qrc-element-type]="img" [qrc-value]="element.content"> </ngx-qrcode>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center scale-in-center">
+        <div>
+          <img id="class-badge" [src]="url" alt="noo image">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+

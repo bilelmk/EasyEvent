@@ -1,0 +1,28 @@
+:host {
+
+  .content-container {
+    margin: 28px;
+
+    .row {
+      margin: 0;
+      padding: 0;
+    }
+
+    form {
+      padding: 30px;
+    }
+
+    .image-preview {
+      height: 40vh;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+    }
+
+    img {
+      cursor: pointer;
+    }
+
+  }
+
+}
+

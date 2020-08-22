@@ -1,0 +1,14 @@
+{
+    "menu" : {
+        "event" : "Event" ,
+        "settings" : "Settings",
+        "invitations" : "Invitations",
+        "events": "Events" ,
+        "profile": "Profile" ,
+        "logout": "Logout",
+        "darkmode": "Dark Mode",
+        "language": "Language",
+        "offlinemode": "Offline Mode" ,
+        "main-menu" : "Main Menu"
+    }
+}

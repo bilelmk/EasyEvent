@@ -1,0 +1,113 @@
+:host {
+
+  .row {
+    margin: 20px 20px 0 20px !important;
+  }
+
+  .title {
+    font-weight: 400;
+    font-size: 130%;
+    color : #112d4e;
+    text-transform: uppercase;
+    margin: 0;
+    display: block;
+  }
+
+  .title-icon {
+    padding: 14px 15px 12px 15px ;
+    border-radius: 5px ;
+    background-color: #dbe2ef ;
+    color : #112d4e ;
+    width: 55px;
+    height: 55px;
+    margin-right: 10px;
+    transition: 0.4s ;
+    outline: none !important;
+    cursor: pointer;
+  }
+
+  .title-icon:hover {
+    //color: ;
+    background-color: #3f72af;
+    color : #f9f7f7 ;
+  }
+
+  mat-sidenav-container {
+    min-height: 90vh;
+  }
+
+  mat-sidenav {
+    border: none !important;
+    z-index: 5;
+    width: 240px ;
+
+    background: #f9f7f7;
+    .sidenav {
+
+      .active {
+        color: #525252;
+        background-color: #e2e0e0;
+      }
+
+      mat-list-item {
+        width: 200px;
+        height: 50px;
+        text-align: center;
+        font-size: 92%;
+        color : #525252;
+        margin: 20px;
+        border-radius: 3px;
+        transition: 0.4s;
+        outline: none;
+        cursor: pointer;
+
+        &:hover:not(.active) {
+          background-color: #e5e3e3;
+        }
+
+        span {
+          margin-right: 15px;
+        }
+
+      }
+    }
+  }
+
+  mat-sidenav-content {
+    min-height: 90vh  ;
+    background-color: #f9f7f7;
+  }
+
+
+}
+
+
+.scale-in-center {
+  -webkit-animation: scale-in-center 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: scale-in-center 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}

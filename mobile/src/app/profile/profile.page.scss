@@ -1,0 +1,96 @@
+ion-content {
+  ion-toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    --background: transparent;
+    --color: white;
+  }
+
+  ion-toolbar ion-button,
+  ion-toolbar ion-back-button,
+  ion-toolbar ion-menu-button {
+    --color: white;
+  }
+
+  .user-background {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 8.5rem;
+    background: center / cover url(/assets/image/speaker-background.png) no-repeat;
+
+    img {
+      position : absolute;
+      top: 4rem ;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 6px solid #fff;
+      z-index: 1;
+    }
+
+    button {
+      position: absolute;
+      top: 5.5rem ;
+      right: 10px;
+      width: 36px !important;
+      height: 36px !important;
+      padding: 0;
+      z-index: 30;
+      outline: none;
+      background: none;
+
+      ion-icon {
+        font-weight: bold;
+        color: white;
+        font-size: 28px
+      }
+    }
+
+  }
+
+  .user-name {
+    margin-top: 3.6rem;
+    margin-bottom: 8px ;
+    text-align: center;
+    color: #323232;
+    text-transform: uppercase;
+  }
+
+  ion-list {
+    padding : 0 15px;
+    ion-list-header {
+      margin : 0 0 5px 0;
+      border-bottom: 0.5px solid rgba(133, 133, 133, 0.26);
+    }
+
+    .user-item {
+      margin-left: 15px;
+      ion-label {
+        font-family: Roboto-Regular, serif;
+        font-size: 90%;
+      }
+    }
+  }
+
+  input[type="file"]{
+    visibility: hidden;
+  }
+
+  .confirm-buttons {
+    width: 100%;
+    z-index : 2 ;
+    position: absolute ;
+    bottom: 0;
+  }
+
+  //linear-gradient(to right bottom, rgba(63, 114, 175, 0.91), rgba(63, 114, 175, 0.91)), url()
+
+}
+
+
+

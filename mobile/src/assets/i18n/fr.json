@@ -1,0 +1,15 @@
+{
+    "menu" : {
+        "event" : "Evénement" ,
+        "settings" : "Paramètres",
+        "invitations" : "Invitations",
+        "events": "Evénements" ,
+        "profile": "Profil" ,
+        "logout": "Se déconnecter",
+        "darkmode": "Mode Sombre",
+        "language": "Langue",
+        "offlinemode": "Mode Hors Ligne" ,
+        "main-menu" : "Menu Principale"
+    }
+}
+

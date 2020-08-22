@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button menu="custom" ></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      My Events
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+<!--  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)" >-->
+<!--    <ion-refresher-content></ion-refresher-content>-->
+<!--  </ion-refresher>-->
+
+    <ion-grid class="ion-margin-vertical" >
+
+        <div *ngIf="resolve() == 'event'">
+            <div *ngFor="let invitation of invitations">
+                <ion-card button (click)="getDetails(invitation)">
+                    <img class="img" [src]='getImage(invitation.event.image) ? getImage(invitation.event.image) : null'  alt="no image"/>
+                    <ion-card-content>
+                        <p class="event-date">{{getDayDetails(invitation.event.day_list[0].day).week_day +" , "+
+                            getDayDetails(invitation.event.day_list[0].day).month + " " +
+                            getDayDetails(invitation.event.day_list[0].day).day + " " +
+                            invitation.event.day_list[0].start_activity + " H"}}</p>
+
+                        <p class="event-title">{{invitation.event.name}}</p>
+                        <p class="event-description">{{invitation.event.description}}</p>
+                    </ion-card-content>
+                </ion-card>
+            </div>
+        </div>
+
+        <ion-row *ngIf="resolve() == 'noevent'" class="ion-justify-content-center ion-align-items-center not-found-row">
+            <ion-col size="7" class="ion-text-center" >
+                <img src="../../assets/image/NoEvent.png"/>
+                <h4>No Events Found !!</h4>
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
+
+</ion-content>

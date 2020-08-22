@@ -1,0 +1,38 @@
+:host {
+  ion-grid {
+    height: 90%;
+
+    .not-found-row {
+      height: 100%;
+      flex-direction: column
+    }
+
+    .img{
+      width : 100%
+    }
+
+    ion-card-content {
+      .event-date {
+        font-family: Roboto-Bold, serif ;
+        color: var(--ion-color-primary);
+      }
+
+      .event-title {
+        font-size: 25px;
+        color: var(--ion-color-dark);
+      }
+
+      .event-description {
+        font-family: Roboto-Regular, serif ;
+        font-size: 14px;
+        color: #7a7a7a;
+      }
+    }
+
+
+
+  }
+
+
+
+}

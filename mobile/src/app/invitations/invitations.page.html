@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button menu="custom" ></ion-menu-button>
+        </ion-buttons>
+        <ion-title>
+            Invitations
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)" >
+            <ion-refresher-content></ion-refresher-content>
+        </ion-refresher>
+
+        <div *ngFor="let invitation of invitations">
+            <ion-card button (click)="getDetails(invitation)">
+                <img class="img" [src]='getImage(invitation.event.image) ? getImage(invitation.event.image) : null'  alt="no image" />
+                <ion-card-header>
+                    <ion-card-title>{{invitation.event.name}}</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                    {{invitation.event.description}}
+                </ion-card-content>
+            </ion-card>
+        </div>
+
+        <ion-row  *ngIf="resolve() == 'noevent'" class="ion-justify-content-center ion-align-items-center not-found-row">
+            <ion-col size="7" >
+                <img src="../../assets/image/NoInvitation.png"/>
+                <h4>No Invitation Found !!</h4></ion-col>
+        </ion-row>
+
+    </ion-grid>
+
+</ion-content>

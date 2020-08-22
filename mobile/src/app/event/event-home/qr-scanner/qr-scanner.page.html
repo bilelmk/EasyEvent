@@ -1,0 +1,37 @@
+<ion-header translucent>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon  slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Check attendees</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="margin: 15px 10px ">
+    <input [(ngModel)]="group" placeholder="Groupe Name"/>
+    <ion-button fill="solid" expand="block" (click)="Scan()"  [disabled]="!group">Scan</ion-button>
+  </div>
+
+
+  <ion-list lines="none">
+
+    <ion-item *ngFor="let inv of invitations">
+      <ion-avatar slot="start">
+        <img src="../../../assets/image/elephant.jpg">
+      </ion-avatar>
+      <ion-label>
+        <h2>{{inv.user.first_name}} {{inv.user.last_name}}
+          <ion-icon class="checkmark_icon" *ngIf="inv.status=='arrived'" name="checkmark-circle"></ion-icon>
+          <ion-icon class="close_icon" *ngIf="!(inv.status=='arrived')" name="close-circle"></ion-icon>
+        </h2>
+        <p>{{inv.grp ? inv.grp : "no group assigned" }}</p>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

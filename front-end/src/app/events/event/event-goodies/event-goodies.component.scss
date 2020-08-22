@@ -1,0 +1,24 @@
+:host {
+
+  .content-container {
+    margin: 24px;
+  }
+
+  .row {
+
+    margin: 0;
+    padding: 0;
+
+    .nodata-text {
+      padding: 15px 0 0 0 ;
+      font-size: 120% ;
+      font-weight: bold ;
+      color: #112d4e ;
+    }
+  }
+
+  .min-height {
+    min-height: 80vh;
+  }
+
+}

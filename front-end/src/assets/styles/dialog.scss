@@ -1,0 +1,26 @@
+@import "variables" ;
+
+.custom-dialog-container .mat-dialog-container {
+  border-radius: 0 !important; ;
+  padding: 0 !important;;
+  margin: 0 !important;;
+}
+
+.mat-form-field-wrapper {
+  margin: 0 !important;
+}
+
+.dialog-container {
+  height: 100%;
+}
+
+.dialog-title {
+  margin: 0;
+  padding: 15px;
+  font-size: 120%;
+  font-weight: 400;
+  background-color: $blue-primary;
+  color: $white ;
+  text-align: center;
+  text-transform: uppercase;
+}

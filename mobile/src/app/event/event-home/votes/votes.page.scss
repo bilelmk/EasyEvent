@@ -1,0 +1,27 @@
+ion-content {
+  --background: #f3f3f3;
+
+  ion-card {
+    margin-bottom: 30px;
+  }
+
+  ion-row {
+    padding: 10px;
+  }
+
+  .checkmark_icon {
+    position : absolute;
+    right: 0 ;
+    color: green;
+    font-size: 30px;
+  }
+
+  .close_icon {
+    position : absolute;
+    right: 0 ;
+    color: #be0000;
+    font-size: 30px;
+  }
+
+}
+

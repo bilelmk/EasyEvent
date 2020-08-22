@@ -1,0 +1,13 @@
+@import "variables";
+
+mat-card {
+  border-radius: 0;
+  padding: 0 !important;
+}
+
+mat-card-header {
+  font-size: 110%;
+  background-color: $blue-primary ;
+  padding: 15px 15px 0 15px;
+  color : $white;
+}

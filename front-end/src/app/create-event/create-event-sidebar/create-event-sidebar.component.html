@@ -1,0 +1,32 @@
+<div class="row justify-content-between align-items-center">
+  <div class="scale-in-center">
+    <p class="title">
+      <button class="btn" (click)="sidenav.toggle()">
+        <i class="material-icons" >
+          menu
+        </i>
+      </button>
+      <span class="material-icons title-icon"  >calendar_today</span>
+      {{'menu.create_new_event' | translate}}
+    </p>
+  </div>
+</div>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="scale-in-center">
+    <div class="sidenav">
+      <mat-list role="list">
+        <mat-list-item role="listitem" routerLink="create-event-decription" routerLinkActive="active" >
+          {{'event_description.description' | translate}}
+        </mat-list-item>
+        <mat-list-item role="listitem" routerLink="create-event-plan" routerLinkActive="active">
+          {{'event_plan.plan' | translate}}
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content >
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

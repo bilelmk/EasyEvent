@@ -1,0 +1,91 @@
+:host {
+
+  .content-container {
+    margin: 28px;
+
+    .row {
+      margin: 0;
+      padding: 0;
+    }
+
+    mat-form-field {
+      width: 100%;
+    }
+
+    form {
+      padding: 30px;
+    }
+
+    .btn {
+      margin: 0 !important;
+      padding: 12px 15px 12px 15px;
+      border-radius: 5px;
+      background-color: #dbe2ef;
+      color : #112d4e ;
+      border: none;
+      transition: 0.4s ;
+      outline: none !important;
+      i {
+        transition: 0.4s ;
+      }
+
+    }
+
+    .btn:hover {
+      background-color: #3f72af;
+      i {
+        color : #f9f7f7 ;
+      }
+    }
+
+    .day-list-item {
+      border: 2px solid rgba(17, 45, 78, 0.37);
+      border-radius: 4px;
+      margin: 15px 15px 15px 15px;
+      padding: 5px 25px;
+      text-align: center;
+      display: inline-block;
+      background-color: rgba(152, 179, 211, 0.13);
+      cursor: pointer;
+      p {
+        color: #112d4e;
+        padding: 5px;
+        margin: 0;
+      }
+      transition: 0.4s;
+    }
+
+    .selected-day {
+      border: 2px solid rgba(17, 45, 78, 0.89);
+      background-color: rgba(70, 127, 194, 0.29);
+    }
+
+  }
+
+  .session-details {
+    border-bottom: 1px solid rgba(73, 73, 73, 0.27);
+  }
+
+  .session-title {
+    font-size: 120%;
+    color: #112d4e;
+    font-weight: bold;
+  }
+
+  .session-time {
+    font-weight: normal;
+    color: #525252;
+    margin-left: 25px;
+    font-size: 15px;
+  }
+
+  .session-description {
+    color: #525252;
+  }
+
+  .subsession-details {
+    border-bottom: 1px solid rgba(73, 73, 73, 0.27);
+    margin-left : 100px;
+    padding-top: 15px;
+  }
+}

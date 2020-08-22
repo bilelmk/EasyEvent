@@ -1,0 +1,53 @@
+<ion-header translucent>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon  slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Polls</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <!--  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)" >-->
+  <!--    <ion-refresher-content></ion-refresher-content>-->
+  <!--  </ion-refresher>-->
+
+  <ion-grid class="ion-margin-vertical" >
+
+    <div *ngIf="resolve() == 'votes'">
+      <div *ngFor="let vote of votes" >
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              {{vote.title}}
+              <ion-icon class="checkmark_icon" *ngIf="vote.response_list[0]" name="checkmark-circle"></ion-icon>
+              <ion-icon class="close_icon" *ngIf="!vote.response_list[0]" name="close-circle"></ion-icon>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            {{vote.description}}
+          </ion-card-content>
+          <ion-footer >
+            <ion-row class="ion-justify-content-end">
+              <ion-button fill="solid" color="primary" (click)="presentAlertPrompt(vote)">
+                View
+              </ion-button>
+            </ion-row>
+
+          </ion-footer>
+        </ion-card>
+      </div>
+    </div>
+
+    <ion-row *ngIf="resolve() == 'novotes'" class="ion-justify-content-center ion-align-items-center not-found-row">
+      <ion-col size="7" class="ion-text-center" >
+        <img src="../../../../assets/image/NoEvent.png"/>
+        <h4>No Polls Found !!</h4>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

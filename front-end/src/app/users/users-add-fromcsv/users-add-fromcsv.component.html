@@ -1,0 +1,53 @@
+<div class="dialog-container">
+  <p class="dialog-title" >Add users from csv file</p>
+
+  <input type="file" (change)="onFileSelect($event.target)" #filePicker accept=".csv">
+
+  <div class="scale-in-center" *ngIf="resolve() === 'users'">
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="first_name" >
+        <mat-header-cell *matHeaderCellDef >First Name</mat-header-cell>
+        <mat-cell *matCellDef="let user" >
+          <p class="cell-text" > {{user.first_name}} </p>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="last_name">
+        <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+        <mat-cell *matCellDef="let user" >
+          <p class="cell-text" > {{user.last_name}} </p>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef >email</mat-header-cell>
+        <mat-cell *matCellDef="let user" >
+          <p class="cell-text" > {{user.email}} </p>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <mat-header-cell *matHeaderCellDef>phone</mat-header-cell>
+        <mat-cell *matCellDef="let user" >
+          <p class="cell-text" > {{user.phone}} </p>
+        </mat-cell>
+      </ng-container>
+
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row class="contact" *matRowDef="let user; columns: displayedColumns;"></mat-row>
+
+    </table>
+
+    <button class="dialog-btn" (click)="addUsers()">Add Users</button>
+
+  </div>
+
+  <div class="row justify-content-center align-items-center scale-in-center" *ngIf="!resolve()">
+    <div mat-ripple class="col-8 col-sm-4 for-ripple">
+      <img  class="img-fluid" src="../../../assets/img/fichier.png" alt="fichier" (click)="filePicker.click()" />
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,46 @@
+<div class="dialog-container">
+
+  <p class="dialog-title" >{{'event_plan.add_subsession' | translate}}</p>
+
+  <form [formGroup]="subsessionForm" class="row justify-content-center align-items-center scale-in-center mt-3 p-4">
+
+    <div class="col-12">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{'event_plan.title' | translate}}</mat-label>
+        <input  formControlName="title" matInput name="title" type="text" required>
+      </mat-form-field>
+    </div>
+
+    <div class="col-12">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{'event_plan.description' | translate}}</mat-label>
+        <textarea formControlName="description" matInput name="description" rows="6" >
+        </textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="col-6">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{'event_plan.start_activity' | translate}}</mat-label>
+        <input formControlName="start_time" matInput  name="start_time" type="time"  required />
+      </mat-form-field>
+    </div>
+
+    <div class="col-6">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{'event_plan.end_activity' | translate}}</mat-label>
+        <input formControlName="end_time" matInput  name="end_time" type="time"  required />
+      </mat-form-field>
+    </div>
+
+    <div class="col-12" >
+      <button class="submit-btn full-width" (click)="addSubSession()" [disabled]="!subsessionForm.valid">
+        {{'event_plan.add' | translate}}
+      </button>
+    </div>
+
+  </form>
+
+</div>
+
+

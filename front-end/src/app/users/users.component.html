@@ -1,0 +1,111 @@
+<div class="user-container">
+
+  <div class="row mt-3 mb-3 justify-content-between align-items-center">
+    <div class="scale-in-center">
+      <p class="title">
+        <span class="material-icons title-icon">person</span>
+        Users management
+      </p>
+    </div>
+    <div >
+      <input type="text" class="search scale-in-center" *ngIf="ishidden" (keyup)="applyFilter($event)" />
+      <button class="btn scale-in-center" *ngIf="ishidden == false" (click)="openSearch()"
+              matTooltip="Search" [matTooltipPosition]="'above'" mat-ripple>
+        <i class="material-icons icon-blue" >
+          search
+        </i>
+      </button>
+
+      <button class="btn scale-in-center" *ngIf="ishidden == true" (click)="closeSearch()"
+              matTooltip="close" [matTooltipPosition]="'above'"  mat-ripple>
+        <i class="material-icons icon-blue" >
+          close
+        </i>
+      </button>
+
+      <button class="btn ml-2 scale-in-center"  (click)="openAddFronCSVDialog()"
+              matTooltip="Add User From CSV" [matTooltipPosition]="'above'"  mat-ripple>
+        <i class="material-icons icon-blue" >
+          attach_file
+        </i>
+      </button>
+
+      <mat-select  class="btn ml-2 scale-in-center group-select"  (selectionChange)="selectGroup($event)">
+        <mat-option disabled>
+          Groupe
+        </mat-option>
+        <mat-option *ngFor="let group of groups" value="{{group.group_id}}">
+          {{group.name}}
+        </mat-option>
+      </mat-select>
+
+      <button class="btn ml-2 scale-in-center" (click)="openAddDialog()"
+              matTooltip="Add User" [matTooltipPosition]="'above'"  mat-ripple>
+        <i class="material-icons icon-blue" >
+          add
+        </i>
+      </button>
+
+    </div>
+  </div>
+
+  <div class="row scale-in-center" *ngIf="resolve() == 'data' ">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="first_name" >
+        <mat-header-cell *matHeaderCellDef >First Name</mat-header-cell>
+        <mat-cell *matCellDef="let user" >
+          <p class="cell-text"  > {{user.first_name}} </p>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="last_name">
+        <mat-header-cell *matHeaderCellDef >Last Name</mat-header-cell>
+        <mat-cell *matCellDef="let user" >
+          <p class="cell-text" > {{user.last_name}} </p>
+        </mat-cell>
+      </ng-container>
+
+<!--      <ng-container matColumnDef="group">-->
+<!--        <mat-header-cell *matHeaderCellDef >Group</mat-header-cell>-->
+<!--        <mat-cell *matCellDef="let user" >-->
+<!--          <p class="cell-text"  > {{user.grp.name}} </p>-->
+<!--        </mat-cell>-->
+<!--      </ng-container>-->
+
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef >email</mat-header-cell>
+        <mat-cell *matCellDef="let user" >
+          <p class="cell-text"  > {{user.email}} </p>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <mat-header-cell *matHeaderCellDef >phone</mat-header-cell>
+        <mat-cell *matCellDef="let user" >
+          <p class="cell-text" > {{user.phone}} </p>
+        </mat-cell>
+      </ng-container>
+      <!-- Buttons Column -->
+      <ng-container matColumnDef="buttons">
+        <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+        <mat-cell *matCellDef="let user">
+          <div class="cell-text">
+            <mat-icon  (click)="openDeleteDialog(user.user_id)" color="primary">delete_outline</mat-icon>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row style="text-align: center" *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row class="contact" *matRowDef="let user; columns: displayedColumns;" ></mat-row>
+    </table>
+    <mat-paginator class="full-width" [pageSizeOptions]="[10]"></mat-paginator>
+
+  </div>
+
+  <div *ngIf="!resolve()" class="row justify-content-center align-items-center scale-in-center">
+    <img class="col-10 col-sm-6 col-md-4 col-lg-3 img-fluid mt-5"  src="../../assets/img/noconnection.png" />
+    <p class="col-12 text-center server-error mt-3">Oops can't reach the Server</p>
+  </div>
+
+</div>

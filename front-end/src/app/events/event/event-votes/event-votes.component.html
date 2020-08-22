@@ -1,0 +1,100 @@
+<div class="content-container scale-in-center" *ngIf="resolve() === 'data'">
+  <div class="col-12 mb-3 row justify-content-end ">
+    <button class="option-btn"  (click)="openAddVoteDialog()"
+            matTooltip="{{'event_votes.add_vote' | translate}}" [matTooltipPosition]="'above'"  mat-ripple>
+      <i class="material-icons" >
+        add
+      </i>
+    </button>
+  </div>
+
+  <div class="row">
+    <div class="table">
+      <div class="mat-header-row">
+        <div class="mat-header-cell">{{'event_votes.vote_title' | translate}}</div>
+        <div class="mat-header-cell">{{'event_votes.vote_description' | translate}}</div>
+        <div class="mat-header-cell">{{'event_votes.options' | translate}}</div>
+        <div class="mat-header-cell"></div>
+      </div>
+      <div class="mat-row" *ngFor="let vote of votes">
+        <div class="mat-cell cell-text">{{vote.title}}</div>
+        <div class="mat-cell cell-text">{{vote.description}}</div>
+        <div class="mat-cell cell-text">
+          <table>
+            <tr class="row" *ngFor="let option of vote.options_list">
+              <td class="small-cell">
+                <mat-chip-list>
+                  <mat-chip (removed)="deleteOption(option.option_id , vote.options_list )">
+                    {{option.title}}
+                    <mat-icon class="icon" matChipRemove matTooltip="{{'event_votes.delete_vote_option' | translate}}"
+                              [matTooltipPosition]="'above'">cancel</mat-icon>
+<!--                    <mat-icon >cancel</mat-icon>-->
+                  </mat-chip>
+                </mat-chip-list>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="mat-cell cell-text">
+
+          <button class="small-btn" (click)="openAddVoteOptionDialog(vote)" matTooltip="{{'event_votes.add_vote_option' | translate}}"
+                  [matTooltipPosition]="'above'"  mat-ripple>
+            <i class="material-icons" >
+              add
+            </i>
+          </button>
+
+          <button class="small-btn" (click)="openEditVoteDialog(vote)" matTooltip="{{'event_votes.update_vote' | translate}}"
+                  [matTooltipPosition]="'above'"  mat-ripple>
+            <i class="material-icons" >
+              edit
+            </i>
+          </button>
+
+          <button class="small-btn" (click)="openDeleteVoteDialog(vote.vote_id)" matTooltip="{{'event_votes.delete_vote' | translate}}"
+                  [matTooltipPosition]="'above'"  mat-ripple>
+            <i class="material-icons" >
+              delete
+            </i>
+          </button>
+
+          <button class="small-btn" (click)="openVoteResultDialog(vote)" matTooltip="{{'event_votes.vote_result' | translate}}"
+                  [matTooltipPosition]="'above'"  mat-ripple>
+            <i class="material-icons" >
+              trending_up
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="resolve() === 'nodata'" class="min-height row justify-content-center align-items-center scale-in-center">
+  <div  class="col-10 col-sm-6 col-md-4 no-padding radius-50"  >
+    <div class="radius-50 pointer" mat-ripple>
+      <img  class="img-fluid" src="../../../../assets/img/vote.png"  alt="goodies image" (click)="openAddVoteDialog()">
+    </div>
+    <p class="col-12 text-center nodata-text">{{'event_votes.no_vote' | translate}}</p>
+  </div>
+</div>
+
+<div *ngIf="!resolve()" class="row min-height justify-content-center align-items-center scale-in-center">
+  <div  class="col-10 col-sm-6 col-md-4 no-padding radius-50"  >
+    <div>
+      <img  class="img-fluid" src="../../../../assets/img/noconnection.png" alt="no connection image" >
+    </div>
+    <p class="col-12 text-center nodata-text">{{'general.cant_reach_the_server' | translate}}</p>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+

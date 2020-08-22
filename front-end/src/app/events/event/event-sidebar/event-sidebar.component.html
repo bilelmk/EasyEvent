@@ -1,0 +1,46 @@
+<div class="row mt-3 justify-content-between align-items-center">
+  <div class="scale-in-center">
+    <p class="title">
+      <span class="material-icons title-icon" routerLink="/main/events" >keyboard_backspace</span>
+      <span class="material-icons title-icon" (click)="sidenav.toggle()" >menu</span>
+      {{existEvent.name}}
+    </p>
+  </div>
+</div>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="scale-in-center">
+    <div class="sidenav">
+      <mat-list role="list">
+        <mat-list-item role="listitem" routerLink="event-decription" routerLinkActive="active" >
+          {{'event_description.description' | translate}}
+        </mat-list-item>
+        <mat-list-item role="listitem" routerLink="event-plan" routerLinkActive="active">
+          {{'event_plan.plan' | translate}}
+        </mat-list-item>
+        <mat-list-item role="listitem" routerLink="event-attendees" routerLinkActive="active">
+          {{'event_attendees.attendees' | translate}}
+        </mat-list-item>
+        <mat-list-item role="listitem" routerLink="event-groups" routerLinkActive="active">
+          {{'event_groups.groups' | translate}}
+        </mat-list-item>
+        <mat-list-item role="listitem" routerLink="event-rooms" routerLinkActive="active">
+          {{'event_rooms.rooms' | translate}}
+        </mat-list-item>
+        <mat-list-item role="listitem" routerLink="event-surveys" routerLinkActive="active">
+          {{'event_surveys.surveys' | translate}}
+        </mat-list-item>
+        <mat-list-item role="listitem" routerLink="event-votes" routerLinkActive="active">
+          {{'event_votes.votes' | translate}}
+        </mat-list-item>
+        <mat-list-item role="listitem" routerLink="event-goodies" routerLinkActive="active">
+          {{'event_goodies.goodies' | translate}}
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content >
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

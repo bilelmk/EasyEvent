@@ -1,0 +1,52 @@
+<ion-content fullscreen="true">
+    <ion-grid >
+        <ion-row class="logo-row">
+            <ion-col size="8" size-sm="4" offset="2" offset-sm="4" >
+                <img src="../../../assets/image/wlogo.png" alt="logo">
+            </ion-col>
+        </ion-row>
+
+
+        <form [formGroup]="loginForm" >
+        <ion-row class="ion-margin-top">
+
+                <ion-col size="10" size-sm="6" offset="1" offset-sm="3">
+                    <label   class="login-label">Username</label>
+                </ion-col>
+                <ion-col size="10" size-sm="6" offset="1" offset-sm="3">
+                    <input formControlName="username" class="login-input" type="text" />
+                </ion-col>
+
+                <ion-col  size="10" size-sm="6" offset="1" offset-sm="3">
+                    <label  class="login-label">Password</label>
+                </ion-col>
+                <ion-col size="10" size-sm="6" offset="1" offset-sm="3">
+                    <input formControlName="password" class="login-input" type="password" />
+                </ion-col>
+
+                <ion-col size="10" size-sm="6" offset="1" offset-sm="3">
+                    <ion-item>
+                        <ion-label class="login-label">Remember me</ion-label>
+                        <ion-toggle  slot="start" color="light"></ion-toggle>
+                    </ion-item>
+                </ion-col>
+
+                <ion-col  size="10" size-sm="6" offset="1" offset-sm="3">
+                    <ion-button (click)="onLogin()" color="light" expand="full" >Login</ion-button>
+                </ion-col>
+
+                <ion-col class="ion-text-center signup_p" size="10" size-sm="6" offset="1" offset-sm="3">
+                    <p>You Don't have an account <a class="signup_link"  routerLink="/register">Sign up</a></p>
+                </ion-col>
+
+        </ion-row>
+        </form>
+    </ion-grid>
+
+    <ion-row class="ion-align-self-end ion-align-items-end ion-justify-content-center">
+        <a class="forgot" routerLink="/forgot">Forgot Password ?</a>
+    </ion-row>
+
+</ion-content>
+
+

@@ -1,0 +1,79 @@
+<div class="content-container scale-in-center">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <p>{{'event_plan.event_plan' | translate}}</p>
+    </mat-card-header>
+    <mat-card-content>
+
+        <form>
+          <div class="row align-items-center">
+            <div class="day-list-item" *ngFor="let day of days" (click)="selectDay(day)"
+                 [ngClass]="selected_day == day.day ? 'selected-day' : '' ">
+              <p>{{getDayDetails(day.day).week_day}}</p>
+              <p>{{getDayDetails(day.day).month}} {{getDayDetails(day.day).day}}</p>
+            </div>
+          </div>
+
+
+          <div class="selected_day row mt-3" *ngIf="selected_eventDay" >
+
+            <div class="col-12">
+              <button class="btn ml-2 ml-auto"  (click)="openAddSessionDialog()" mat-ripple
+                      matTooltip="{{'event_plan.add_session' | translate}}" [matTooltipPosition]="'above'"  >
+                <i class="material-icons icon-blue" >
+                  add
+                </i>
+              </button>
+            </div>
+
+            <div class="col-12 col-lg-6 mt-3" >
+              <mat-form-field appearance="outline"  >
+                <mat-label>{{'event_plan.start_activity' | translate}}</mat-label>
+                <input [(ngModel)]="selected_eventDay.start_activity" matInput name="start_activity" type="time" />
+              </mat-form-field>
+            </div>
+
+            <div class="col-12 col-lg-6 mt-3">
+              <mat-form-field appearance="outline"  >
+                <mat-label>{{'event_plan.end_activity' | translate}}</mat-label>
+                <input  [(ngModel)]="selected_eventDay.end_activity"  matInput  name="end_activity" type="time"  />
+              </mat-form-field>
+            </div>
+
+            <div class="col-12 mt-2 pl-3" *ngFor="let session of selected_eventDay.sessions_list">
+              <div class="session-details row justify-content-between align-items-center mt-2">
+                <div>
+                  <p class="session-title">{{session.title }} <span class="session-time" > {{ session.start_time}}H -- {{session.end_time}}H </span></p>
+                  <p class="session-description"> {{session.description}} </p>
+                </div>
+                <div>
+                  <button class="btn"  (click)="openAddSubSessionDialog(session)"
+                          matTooltip="{{'event_plan.add_subsession' | translate}}" [matTooltipPosition]="'above'"  mat-ripple>
+                    <i class="material-icons icon-blue" >
+                      add
+                    </i>
+                  </button>
+                </div>
+              </div>
+
+              <div *ngIf="session.subSessions_list">
+                <div class="subsession-details" *ngFor="let subsession of session.subSessions_list">
+                  <p class="session-title">{{subsession.title }} <span class="session-time" > {{ subsession.start_time}}H -- {{subsession.end_time}}H </span></p>
+                  <p class="session-description"> {{subsession.description}} </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-4">
+              <button class="submit-btn half-width" (click)="addEvent()">
+                {{'event_plan.add_event' | translate}}
+              </button>
+            </div>
+
+          </div>
+
+        </form>
+
+    </mat-card-content>
+  </mat-card>
+</div>

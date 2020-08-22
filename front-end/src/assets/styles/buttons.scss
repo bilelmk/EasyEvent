@@ -1,0 +1,96 @@
+@import "variables" ;
+
+.submit-btn {
+  padding: 12px;
+  background-color: $blue-secondary;
+  color: $white ;
+  border: none;
+  border-radius: 4px;
+  transition: 0.4s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $blue-primary ;
+  }
+
+  &[disabled]{
+    opacity: 65%;
+  }
+
+}
+
+.option-btn {
+  margin: 0 0 0 10px !important;
+  padding: 12px 15px 12px 15px;
+  border-radius: 5px;
+  background-color: $blue-tertiary ;
+  color : $blue-primary ;
+  border: none;
+  transition: 0.4s ;
+  i {
+    transition: 0.4s ;
+  }
+
+  &:hover {
+    background-color: $blue-secondary ;
+    i {
+      color : $white ;
+    }
+  }
+
+  &[disabled]{
+    opacity: 65%;
+  }
+}
+
+
+
+.small-btn {
+  background-color: transparent;
+  padding:  8px 8px 3px 8px ;
+  border-radius: 5px;
+  color: $blue-primary ;
+  border: none;
+  transition: 0.4s;
+  i {
+    transition: 0.4s;
+  }
+
+  &:hover {
+    background-color: $blue-secondary;
+    i {
+      color: $white ;
+    }
+  }
+
+  &[disabled]{
+    opacity: 65%;
+  }
+}
+
+
+mat-chip {
+  background-color: $blue-tertiary !important;
+  color: $blue-primary !important ;
+  margin-bottom: 8px !important ;
+
+  mat-icon {
+    opacity: 1 !important ;
+    color: $blue-primary !important;
+  }
+
+  &:hover {
+    background-color: $blue-secondary !important;
+    color: $white !important ;
+
+    mat-icon {
+      opacity: 1 !important  ;
+      color: $white !important;
+    }
+  }
+}
+
+
+button {
+  outline: none !important;
+}

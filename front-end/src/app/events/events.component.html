@@ -1,0 +1,63 @@
+<div class="events-container">
+
+  <div class="row mt-3 mb-3 justify-content-between align-items-center">
+    <div class="scale-in-center">
+      <p class="title">
+      <span class="material-icons title-icon">calendar_today</span>
+        {{'menu.events_list' | translate}}
+      </p>
+    </div>
+  </div>
+
+  <div class="row" >
+    <div *ngFor="let event of events" class="col-12 col-sm-6 col-md-6 col-xl-3 pl-0 pb-4 pr-4 scale-in-center">
+      <div class="card" (click)="navigateToEvent(event)">
+        <div class="card__side card__side--front">
+          <div class="card__picture card__picture" [ngStyle]="getImage(event.image)">&nbsp;</div>
+          <h4 class="card__heading">
+            <span class="card__heading-span card__heading-span">{{event.name}}</span>
+          </h4>
+          <div class="card__details">
+            <div class="row">
+              <div class="col-6">
+                <div class="month text-center">
+                  {{getMonth(event.start_date)}}
+                </div>
+                <div class="day text-center">
+                  {{getDay(event.start_date)}}
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="day text-center">
+                  {{getStartTime(event.day_list)}}
+                </div>
+              </div>
+            </div>
+
+            <div class="row mt-3">
+              <div class="col-6">
+                <div class="month text-center">
+                  {{getMonth(event.end_date)}}
+                </div>
+                <div class="day text-center">
+                  {{getDay(event.end_date)}}
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="day text-center">
+                  {{getEndTime(event.day_list)}}
+                </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="card__side card__side--back card__side--back">
+          <div class="card__cta">
+              <p class="description">{{event.description}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,99 @@
+<div class="user-container m-4 scale-in-center" >
+
+  <div class="col-12 mb-3 row justify-content-end ">
+
+    <input type="text" class="search scale-in-center" *ngIf="ishidden" (keyup)="applyFilter($event)" />
+    <button class="option-btn scale-in-center" *ngIf="ishidden == false" (click)="openSearch()"
+            matTooltip="Search" [matTooltipPosition]="'above'" mat-ripple>
+      <i class="material-icons icon-blue" >
+        search
+      </i>
+    </button>
+
+    <button class="option-btn scale-in-center" *ngIf="ishidden == true" (click)="closeSearch()"
+            matTooltip="close" [matTooltipPosition]="'above'"  mat-ripple>
+      <i class="material-icons icon-blue" >
+        close
+      </i>
+    </button>
+
+    <button class="option-btn"  (click)="selectAll()"
+            matTooltip="{{'event_attendees.select_all' | translate}}" [matTooltipPosition]="'above'"  mat-ripple>
+      <i class="material-icons icon-blue" >
+        done_all
+      </i>
+    </button>
+
+  </div>
+
+  <div class="row">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+
+      <ng-container matColumnDef="first_name"  >
+        <mat-header-cell *matHeaderCellDef  >{{'event_attendees.first_name' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let invitation" >
+          <p class="cell-text"  > {{invitation.user.first_name}} </p>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="last_name">
+        <mat-header-cell *matHeaderCellDef >{{'event_attendees.last_name' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let invitation" >
+          <p class="cell-text" > {{invitation.user.last_name}} </p>
+        </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef >{{'event_attendees.email' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let invitation" >
+          <p class="cell-text"  > {{invitation.user.email}} </p>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <mat-header-cell *matHeaderCellDef >{{'event_attendees.phone' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let invitation" >
+          <p class="cell-text" > {{invitation.user.phone}} </p>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef>{{'event_attendees.status' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let invitation">
+          <div class="cell-text">
+            <p class="cell-text" > {{invitation.status}} </p>
+<!--            <mat-checkbox color="primary" [(ngModel)]="invitation.status" ></mat-checkbox>-->
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="checkbox">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let invitation">
+          <div class="cell-text">
+            <mat-checkbox color="primary" [checked]="['invited' , 'accepted' , 'arrived'].includes(invitation.status)"
+                          (change)="inviteUser(invitation)"></mat-checkbox>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row style="text-align: center" *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row class="contact" *matRowDef="let user; columns: displayedColumns;" ></mat-row>
+    </table>
+    <mat-paginator class="full-width" [pageSizeOptions]="[10, 20, 50]"></mat-paginator>
+  </div>
+
+  <button class="submit-btn half-width mt-4" (click)="sendInvitations()">
+    {{'event_attendees.send_invitation' | translate}}
+  </button>
+
+</div>
+
+<div *ngIf="resolve() === 'nodata'" class="row justify-content-center align-items-center scale-in-center">
+    <p class="col-12">nodata</p>
+</div>
+
+<div *ngIf="!resolve()" class="row justify-content-center align-items-center scale-in-center">
+  <p class="col-12 ">no connection</p>
+</div>

@@ -1,0 +1,70 @@
+<div class="user-container m-4 scale-in-center" >
+
+  <div class="col-12 mb-3 row justify-content-end ">
+
+<!--    <input type="text" class="search scale-in-center" *ngIf="ishidden" (keyup)="applyFilter($event)" />-->
+<!--    <button class="option-btn scale-in-center" *ngIf="ishidden == false" (click)="openSearch()"-->
+<!--            matTooltip="Search" [matTooltipPosition]="'above'" mat-ripple>-->
+<!--      <i class="material-icons icon-blue" >-->
+<!--        search-->
+<!--      </i>-->
+<!--    </button>-->
+
+<!--    <button class="option-btn scale-in-center" *ngIf="ishidden == true" (click)="closeSearch()"-->
+<!--            matTooltip="close" [matTooltipPosition]="'above'"  mat-ripple>-->
+<!--      <i class="material-icons icon-blue" >-->
+<!--        close-->
+<!--      </i>-->
+<!--    </button>-->
+
+  </div>
+
+  <div class="row">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+
+      <ng-container matColumnDef="user1"  >
+        <mat-header-cell *matHeaderCellDef  >{{'event_rooms.user1' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let room" >
+          <p class="cell-text"  > {{room.user1.first_name}}  {{room.user1.last_name}} </p>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="user2">
+        <mat-header-cell *matHeaderCellDef >{{'event_rooms.user2' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let room" >
+          <p class="cell-text" > {{room.user2.first_name}}  {{room.user2.last_name}} </p>
+        </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="user3">
+        <mat-header-cell *matHeaderCellDef >{{'event_rooms.user3' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let room" >
+          <p class="cell-text"  > {{room.user3.first_name}} {{room.user3.last_name}} </p>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef >{{'event_rooms.name' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let room" >
+          <div class="cell-text">
+            <mat-form-field appearance="outline"  >
+              <mat-label>Group</mat-label>
+              <input  matInput   name="groupe"  [(ngModel)]="room.room_name"/>
+            </mat-form-field>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+
+      <mat-header-row style="text-align: center" *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row class="contact" *matRowDef="let user; columns: displayedColumns;" ></mat-row>
+    </table>
+    <mat-paginator class="full-width" [pageSizeOptions]="[10, 20, 50]"></mat-paginator>
+  </div>
+
+<!--  <button class="submit-btn half-width mt-4" (click)="setRooms()">-->
+<!--    {{'event_attendees.send_invitation' | translate}}-->
+<!--  </button>-->
+
+</div>

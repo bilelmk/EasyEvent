@@ -1,0 +1,194 @@
+{
+  "login" : {
+    "login_to_your_account" : "CONNECTEZ-VOUS À VOTRE COMPTE",
+    "remember_me": "Souviens-toi de moi",
+    "username" : "Nom d'utilisateur",
+    "password" : "Mot de passe",
+    "login" : "Se connecter"
+  },
+
+  "menu" : {
+    "create_new_event" : "Créer Un Evénement" ,
+    "users_management" : "Utilisateurs",
+    "events_list" : "Liste Des Evénements",
+    "badges_generator" : "Générateur De Badges" ,
+    "logout" : "Se Déconnecter " ,
+    "settings" : "Paramètres" ,
+    "groups": "Groupes"
+  },
+
+  "event_description" : {
+    "event_description": "Description de l'évenement",
+    "event_name": "Nom de l'événement",
+    "start_date": "Date de début",
+    "end_date": "Date de fin",
+    "number_attendees": "Nombre de participants",
+    "description": "Description" ,
+    "next" : "L 'étape suivante" ,
+    "update" : "Mettre à jour la description de l'événement"
+  },
+
+  "event_plan" : {
+    "plan" : "Plan" ,
+    "event_plan" : "Plan d'événement" ,
+    "start_activity" : "Heure de début" ,
+    "end_activity" : "Heure de fin" ,
+    "add_event" : "Ajouter l'évènement",
+    "add_session" : "Ajouter une activité" ,
+    "add_subsession" : "Ajouter une sous activité",
+    "update_session" : "Modifier l 'activité",
+    "update_subsession" : "Modifier la sous activité",
+    "delete_session" : "Supprimer l 'activité",
+    "delete_subsession" : "Supprimer la sous activité",
+    "title" : "Titre",
+    "description": "Description" ,
+    "submit" : "Envoyer" ,
+    "add" : "Ajouter" ,
+    "update" : "Confirmer les modifications" ,
+    "delete" : "Supprimer"
+  },
+
+  "event_surveys" : {
+    "surveys" : "Sondages",
+    "add_survey" : "Ajouter un sondage",
+    "update_survey" : "Mettre à jour le sondage" ,
+    "delete_survey" : "Supprimer le sondage",
+    "survey_result" : "Résultat du sondage",
+    "title" : "Titre",
+    "description": "Description" ,
+    "stars" : "Nombres des étoiles" ,
+    "no_survey" : "Aucun sondage trouvé ! Cliquez pour ajouter",
+    "submit" : "Envoyer" ,
+    "add" : "Ajouter" ,
+    "update" : "Confirmer les modifications" ,
+    "delete" : "Supprimer"
+  },
+
+  "event_votes" : {
+    "votes" : "Votes",
+    "add_vote" : "Ajouter un vote",
+    "update_vote" : "Modifier le vote",
+    "delete_vote" : "Supprimer le vote",
+    "vote_result": "Résultat du vote",
+    "update_vote_option" : "Modifier l'option du vote",
+    "add_vote_option" : "Ajouter une option de vote",
+    "delete_vote_option" : "Supprimer cette option",
+    "vote_title" : "Titre du vote",
+    "vote_description" : "Description du vote",
+    "option_title": "Titre de l'option",
+    "options" : "Liste des options",
+    "option_description" : "Description de l'option",
+    "submit" : "Envoyer" ,
+    "add" : "Ajouter" ,
+    "update" : "Confirmer les modifications" ,
+    "delete" : "Supprimer" ,
+    "no_vote" : "Aucun vote trouvé ! Cliquez pour ajouter"
+  },
+
+  "event_goodies" : {
+    "add_goody" : "Ajouter un goody",
+    "update_goody" : "Mettre à jour le goody" ,
+    "delete_goody" : "Supprimer le goody",
+    "choices" : "Résultat du sondage",
+    "goodies" : "Goodies" ,
+    "name" : "Nom",
+    "features" : "Caractéristiques",
+    "options" : "Options",
+    "option" : "Option",
+    "add_feature" : "Ajouter une caractéristique",
+    "add_option" : "Ajouter une option",
+    "delete_feature" : "Supprimer cette caractéristique",
+    "delete_option" : "Supprimer cette option",
+    "goodies_choices" : "Choix des utilisateurs",
+    "submit" : "Envoyer" ,
+    "add" : "Ajouter" ,
+    "update" : "Confirmer les modifications" ,
+    "delete" : "Supprimer" ,
+    "no_goody" : "Aucun goody trouvé ! Cliquez pour ajouter"
+  },
+
+  "event_attendees" : {
+    "attendees" : "Participants" ,
+    "first_name" : "Prénom" ,
+    "last_name" : "Nom",
+    "phone" : "Numéro de téléphone",
+    "email" : "E-mail",
+    "select_all" : "Tout Sélectionner",
+    "send_invitation" : "Envoyer les invitations",
+    "status" : "Etat d'invitation"
+  },
+
+  "event_groups" : {
+    "groups" : "Bus groupes"
+  },
+
+  "event_rooms" : {
+    "rooms" : "Chambres" ,
+    "user1" : "Utilisateur N°1" ,
+    "user2" : "Utilisateur N°2" ,
+    "user3" : "Utilisateur N°3" ,
+    "name" : "Code du chambre"
+  },
+
+  "groups" : {
+    "groups": "Groupes",
+    "add_group" : "Ajouter un groupe",
+    "update_group" : "Mettre à jour le groupe" ,
+    "delete_group" : "Supprimer le groupe",
+    "name" : "Nom du groupe",
+    "description": "Description" ,
+    "no_survey" : "Aucun groupe trouvé ! Cliquez pour ajouter",
+    "submit" : "Envoyer" ,
+    "add" : "Ajouter" ,
+    "update" : "Confirmer les modifications" ,
+    "delete" : "Supprimer"
+  },
+
+  "settings" : {
+    "language": "Langue",
+    "english": "Anglais",
+    "french" : "Français"
+  },
+
+  "badges" : {
+    "Badges Generator": "Générateur des badges",
+    "Left": "Gauche",
+    "Right": "Droite",
+    "Center": "Centre",
+    "Templates" : "modèles",
+    "Text": "Texte",
+    "Shape": "Forme",
+    "Dynamic Content": "Contenu Dynamique",
+    "Generate": "Générer",
+    "Badge Format": " Format du badge",
+    "Font Size" : "Taille du police",
+    "Font Family":  "Famille de police",
+    "Font Style":  "Style de police",
+    "Font Weight":  "Poids de la police",
+    "Text Position": " Position du texte",
+    "Color": "Couleur",
+    "width" : "Largeur",
+    "height": "Longeur",
+    "Background": "Contexte",
+    "Dynamic fields": "Champs dynamiques",
+    "Open PDF": "Ouvrir PDF",
+    "Add QR Code" : "Ajouter QR Code"
+  },
+
+  "users" : {
+    "Users" : "Gestion des utilisateurs",
+    "add Users": "Ajouter des utilisateurs"
+  },
+
+  "forms_control" : {
+    "Email is required" : "L'email est requis",
+    "Please enter a valid email address": "S'il vous plaît, mettez une adresse email valide",
+    "Password is required": "Mot de passe requis"
+  },
+
+  "general": {
+    "loading" : "Chargement . . . " ,
+    "cant_reach_the_server" : "Impossible d'atteindre le serveur !"
+  }
+}
+

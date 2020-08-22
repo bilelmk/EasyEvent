@@ -1,0 +1,71 @@
+<div class="user-container m-4 scale-in-center">
+
+<!--  <button (click)="selectAll()"> select All </button>-->
+  <div class="row " >
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="first_name" >
+        <mat-header-cell *matHeaderCellDef >First Name</mat-header-cell>
+        <mat-cell *matCellDef="let invitation" >
+          <p class="cell-text"  > {{invitation.user.first_name}} </p>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="last_name">
+        <mat-header-cell *matHeaderCellDef >Last Name</mat-header-cell>
+        <mat-cell *matCellDef="let invitation" >
+          <p class="cell-text" > {{invitation.user.last_name}} </p>
+        </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef >Email</mat-header-cell>
+        <mat-cell *matCellDef="let invitation" >
+          <p class="cell-text"  > {{invitation.user.email}} </p>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <mat-header-cell *matHeaderCellDef >Phone</mat-header-cell>
+        <mat-cell *matCellDef="let invitation" >
+          <p class="cell-text" > {{invitation.user.phone}} </p>
+        </mat-cell>
+      </ng-container>
+      <!-- Buttons Column -->
+
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+        <mat-cell *matCellDef="let invitation">
+          <div class="cell-text">
+            <p class="cell-text" > {{invitation.status}} </p>
+            <!--            <mat-checkbox color="primary" [(ngModel)]="invitation.status" ></mat-checkbox>-->
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="group">
+        <mat-header-cell *matHeaderCellDef>Group</mat-header-cell>
+        <mat-cell *matCellDef="let invitation">
+          <div class="cell-text">
+          <mat-form-field appearance="outline"  >
+            <mat-label>Group</mat-label>
+            <input  matInput   name="groupe"  [(ngModel)]="invitation.grp"/>
+          </mat-form-field>
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row style="text-align: center" *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row class="contact" *matRowDef="let user; columns: displayedColumns;" ></mat-row>
+    </table>
+  </div>
+
+  <button class="btn mt-4 " (click)="setGroups()">Set Groups</button>
+
+  <!--  <div *ngIf="!resolve()" class="row justify-content-center align-items-center scale-in-center">-->
+  <!--    <img class="col-10 col-sm-6 col-md-4 col-lg-3 img-fluid mt-5"  src="../../assets/img/noconnection.png" />-->
+  <!--    <p class="col-12 text-center server-error mt-3">Oops can't reach the Server</p>-->
+  <!--  </div>-->
+
+</div>

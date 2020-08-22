@@ -1,0 +1,53 @@
+// material UI
+@import '~@angular/material/theming';
+@include mat-core();
+$front-end-primary: mat-palette($mat-indigo);
+$front-end-accent: mat-palette($mat-pink, A200, A100, A400);
+$front-end-warn: mat-palette($mat-red);
+$front-end-theme: mat-light-theme($front-end-primary, $front-end-accent, $front-end-warn);
+@include angular-material-theme($front-end-theme);
+
+// leafley JS
+@import "~leaflet/dist/leaflet.css";
+
+// custom scss
+@import "assets/styles/spinner.scss";
+@import "assets/styles/snackbar.scss" ;
+@import "assets/styles/animations.scss" ;
+@import "assets/styles/buttons.scss" ;
+@import "assets/styles/map.scss" ;
+@import "assets/styles/utilities.scss" ;
+@import "assets/styles/dialog.scss" ;
+@import "assets/styles/card.scss";
+@import "assets/styles/table.scss" ;
+
+
+
+html, body {
+  height: 100% !important;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif !important;
+  background-color: #f9f7f7 !important;
+}
+
+
+.row {
+  margin: 0 !important;
+}
+
+input[type="file"] {
+  visibility: hidden !important;
+}
+
+.logo-div {
+  background-image: url("src/assets/img/logo-spinner.png");
+  background-size: cover;
+}
+
+
+
+
+

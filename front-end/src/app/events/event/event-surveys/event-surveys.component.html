@@ -1,0 +1,70 @@
+<div class="content-container scale-in-center" *ngIf="resolve() === 'data'">
+  <div class="col-12 mb-3 row justify-content-end ">
+    <button class="option-btn"  (click)="openAddSurveyDialog()"
+            matTooltip="{{'event_surveys.add_survey' | translate}}" [matTooltipPosition]="'above'"  mat-ripple>
+      <i class="material-icons icon-blue" >
+        add
+      </i>
+    </button>
+  </div>
+
+  <div class="row">
+    <div class="table">
+      <div class="mat-header-row">
+        <div class="mat-header-cell">{{'event_surveys.title' | translate}}</div>
+        <div class="mat-header-cell">{{'event_surveys.description' | translate}}</div>
+        <div class="mat-header-cell">{{'event_surveys.stars' | translate}}</div>
+        <div class="mat-header-cell"></div>
+      </div>
+      <div class="mat-row" *ngFor="let survey of surveys">
+        <div class="mat-cell cell-text">{{survey.title}}</div>
+        <div class="mat-cell cell-text">{{survey.description}}</div>
+        <div class="mat-cell cell-text">
+          <i class="material-icons star" *ngFor="let star of getRange(survey.star_number)">
+            star_rate
+          </i>
+        </div>
+        <div class="mat-cell cell-text">
+          <button class="small-btn" (click)="openUpdateSurveyDialog(survey)" matTooltip="{{'event_surveys.update_survey' | translate}}"
+                  [matTooltipPosition]="'above'"  mat-ripple>
+            <i class="material-icons" >
+              edit
+            </i>
+          </button>
+
+          <button class="small-btn" (click)="openDeleteSurveyDialog(survey.survey_id)" matTooltip="{{'event_surveys.delete_survey' | translate}}"
+                  [matTooltipPosition]="'above'"  mat-ripple>
+            <i class="material-icons" >
+              delete
+            </i>
+          </button>
+
+          <button class="small-btn" (click)="openSurveyResultDialog(survey)" matTooltip="{{'event_surveys.survey_result' | translate}}"
+                  [matTooltipPosition]="'above'"  mat-ripple>
+            <i class="material-icons" >
+              trending_up
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="resolve() === 'nodata'" class="min-height row justify-content-center align-items-center scale-in-center">
+  <div  class="col-10 col-sm-6 col-md-4 no-padding radius-50"  >
+    <div class="radius-50 pointer" mat-ripple>
+      <img  class="img-fluid" src="../../../../assets/img/survey.png"  alt="goodies image" (click)="openAddSurveyDialog()">
+    </div>
+    <p class="col-12 text-center nodata-text">{{'event_surveys.no_survey' | translate}}</p>
+  </div>
+</div>
+
+<div *ngIf="!resolve()" class="row min-height justify-content-center align-items-center scale-in-center">
+  <div  class="col-10 col-sm-6 col-md-4 no-padding radius-50"  >
+    <div>
+      <img  class="img-fluid" src="../../../../assets/img/noconnection.png" alt="no connection image" >
+    </div>
+    <p class="col-12 text-center nodata-text">{{'general.cant_reach_the_server' | translate}}</p>
+  </div>
+</div>

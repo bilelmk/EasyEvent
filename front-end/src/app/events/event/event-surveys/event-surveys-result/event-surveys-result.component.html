@@ -1,0 +1,10 @@
+<div class="dialog-container">
+  <p class="dialog-title" >{{'event_surveys.survey_result' | translate}}</p>
+  <div style="display: block" class="mt-5">
+    <canvas baseChart
+            [data]="pieChartData"
+            [labels]="pieChartLabels"
+            [chartType]="pieChartType">
+    </canvas>
+  </div>
+</div>

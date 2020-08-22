@@ -1,0 +1,38 @@
+<div class="dialog-container">
+
+  <p class="dialog-title" >{{'event_surveys.add_survey' | translate}}</p>
+
+  <form [formGroup]="surveyForm" class="row justify-content-center align-items-center scale-in-center mt-3 p-4">
+
+    <div class="col-12">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{'event_surveys.title' | translate}}</mat-label>
+        <input  formControlName="title" matInput name="title" type="text" >
+      </mat-form-field>
+    </div>
+
+    <div class="col-12">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{'event_surveys.description' | translate}}</mat-label>
+        <textarea formControlName="description" matInput name="description" rows="6" >
+        </textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="col-12">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{'event_surveys.stars' | translate}}</mat-label>
+        <input formControlName="star_number" matInput  name="star_number" type="number"  />
+      </mat-form-field>
+    </div>
+
+    <div class="col-12" >
+      <button class="submit-btn full-width" (click)="addSurvey()" [disabled]="!surveyForm.valid">
+        {{'event_surveys.add' | translate}}
+      </button>
+    </div>
+
+  </form>
+
+</div>
+

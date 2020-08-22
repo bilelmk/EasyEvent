@@ -1,0 +1,109 @@
+<div class="content-container scale-in-center" *ngIf="resolve() === 'data' ">
+  <div class="col-12 mb-3 row justify-content-end ">
+    <button class="option-btn" (click)="openAddGoodyDialog()" matTooltip="{{'event_goodies.add_goody' | translate}}"
+            [matTooltipPosition]="'above'"  mat-ripple>
+      <i class="material-icons" >
+        add
+      </i>
+    </button>
+  </div>
+
+  <div class="row">
+    <div class="table">
+      <div class="mat-header-row">
+        <div class="mat-header-cell">{{'event_goodies.name' | translate}}</div>
+        <div class="mat-header-cell">{{'event_goodies.features' | translate}}</div>
+        <div class="mat-header-cell">{{'event_goodies.options' | translate}}</div>
+        <div class="mat-header-cell"></div>
+      </div>
+      <div class="mat-row" *ngFor="let goody of goodies">
+        <div class="mat-cell cell-text">{{goody.name}}</div>
+        <div class="mat-cell cell-text">
+          <table>
+            <tr class="row align-items-center" *ngFor="let feature of goody.feature_list">
+              <td class="small-cell">
+                <mat-chip-list>
+                  <mat-chip (removed)="deleteFeature(feature.goody_feature_id , goody.feature_list)">
+                    {{feature.feature_name}}
+                    <mat-icon class="icon" matChipRemove matTooltip="{{'event_goodies.delete_feature' | translate}}"
+                              [matTooltipPosition]="'above'">cancel</mat-icon>
+                    <!--                    <mat-icon >cancel</mat-icon>-->
+                  </mat-chip>
+                </mat-chip-list>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="mat-cell cell-text">
+          <tr>
+            <td *ngFor="let feature of goody.feature_list" class="row align-items-center small-cell" >
+              <mat-chip-list>
+                <mat-chip (removed)="deleteOption(option.goody_option_id , feature.option_list)"
+                          *ngFor="let option of feature.option_list" >
+                  {{option.option_name}}
+                  <mat-icon class="icon" matChipRemove matTooltip="{{'event_goodies.delete_option' | translate}}"
+                            [matTooltipPosition]="'above'">cancel</mat-icon>
+                  <!--                    <mat-icon >cancel</mat-icon>-->
+                </mat-chip>
+              </mat-chip-list>
+            </td>
+          </tr>
+        </div>
+
+        <div class="mat-cell cell-text">
+          <button class="small-btn" (click)="openAddVoteFeatureDialog()" matTooltip="{{'event_goodies.add_feature' | translate}}"
+                  [matTooltipPosition]="'above'" mat-ripple>
+            <i class="material-icons" >
+              add
+            </i>
+          </button>
+          <button class="small-btn" (click)="openUpdateGoodyDialog(goody)" matTooltip="{{'event_goodies.update_goody' | translate}}"
+                  [matTooltipPosition]="'above'"  mat-ripple>
+            <i class="material-icons" >
+              edit
+            </i>
+          </button>
+          <button class="small-btn" (click)="openDeleteGoodyDialog(goody.goody_id)" matTooltip="{{'event_goodies.delete_goody' | translate}}"
+                  [matTooltipPosition]="'above'"  mat-ripple >
+            <i class="material-icons" >
+              delete
+            </i>
+          </button>
+          <button class="small-btn" (click)="openGoodiesChoicesDialog(goody.goody_id)" matTooltip="{{'event_goodies.goodies_choices' | translate}}"
+                  [matTooltipPosition]="'above'" mat-ripple>
+            <i class="material-icons" >
+              how_to_reg
+            </i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div *ngIf="resolve() === 'nodata'" class="row min-height justify-content-center align-items-center scale-in-center">
+  <div  class="col-10 col-sm-6 col-md-4 no-padding radius-50"  >
+    <div class="radius-50 pointer" mat-ripple>
+      <img  class="img-fluid" src="../../../../assets/img/goodies.png"  alt="goodies image" (click)="openAddGoodyDialog()">
+    </div>
+    <p class="col-12 text-center nodata-text">{{'event_goodies.no_goody' | translate}}</p>
+  </div>
+</div>
+
+<div *ngIf="!resolve()" class="row min-height justify-content-center align-items-center scale-in-center">
+  <div  class="col-10 col-sm-6 col-md-4 no-padding radius-50"  >
+    <div>
+      <img  class="img-fluid" src="../../../../assets/img/noconnection.png" alt="no connection image" >
+    </div>
+    <p class="col-12 text-center nodata-text">{{'general.cant_reach_the_server' | translate}}</p>
+  </div>
+</div>
+
+
+
+
+
+
+
